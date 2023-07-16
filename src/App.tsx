@@ -3,9 +3,10 @@ import "./App.css";
 import { Signup } from "./sections/Signup/Signup";
 import { Login } from "./sections/Login/Login";
 import { useAuth } from "./contexts/AuthContext";
+import { GithubRepositories } from "./sections/Repositories/GithubRepositories";
 
 function App() {
-  const { isAuth, logout } = useAuth();
+  const { isAuth } = useAuth();
 
   if (isAuth === null) {
     return <></>;
@@ -19,7 +20,7 @@ function App() {
           <Login />
         </>
       )}
-      {isAuth && <button onClick={logout}>Logout</button>}
+      {isAuth && <GithubRepositories />}
     </>
   );
 }

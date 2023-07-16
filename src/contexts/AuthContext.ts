@@ -4,6 +4,7 @@ import { useContext } from "react";
 
 type AuthContextType = {
   isAuth: boolean | null;
+  isGithubAuth: boolean | null;
   authorize: (jwt: JWT) => void;
   logout: () => void;
 };
