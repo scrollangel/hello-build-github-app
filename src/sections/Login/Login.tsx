@@ -20,7 +20,7 @@ export function Login() {
   };
 
   return (
-    <main>
+    <section>
       <h1>Login</h1>
       <form id="login-form" onSubmit={submitForm}>
         <label htmlFor="username">Username</label>
@@ -45,6 +45,6 @@ export function Login() {
 
         <button type="submit">Login</button>
       </form>
-    </main>
+    </section>
   );
 }

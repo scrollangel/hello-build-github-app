@@ -3,7 +3,7 @@ import "./App.css";
 import { Signup } from "./sections/Signup/Signup";
 import { Login } from "./sections/Login/Login";
 import { useAuth } from "./contexts/AuthContext";
-import { GithubRepositories } from "./sections/Repositories/GithubRepositories";
+import { GithubApplication } from "./sections/Repositories/GithubApplication";
 
 function App() {
   const { isAuth } = useAuth();
@@ -20,7 +20,7 @@ function App() {
           <Login />
         </>
       )}
-      {isAuth && <GithubRepositories />}
+      {isAuth && <GithubApplication />}
     </>
   );
 }
