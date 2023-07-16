@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Signup } from "./sections/Signup/Signup";
+import { Login } from "./sections/Login/Login";
+import { useAuth } from "./contexts/AuthContext";
 
 function App() {
+  const { isAuth, logout } = useAuth();
+
+  if (isAuth === null) {
+    return <></>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!isAuth && (
+        <>
+          <Signup />
+          <Login />
+        </>
+      )}
+      {isAuth && <button onClick={logout}>Logout</button>}
+    </>
   );
 }
 
