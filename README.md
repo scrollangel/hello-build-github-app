@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Hello Build Github App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project for HelloBuild using the Github API
+
+
+
+https://github.com/scrollangel/hello-build-github-app/assets/31676607/f2feec15-7545-414a-87b6-9a7c10c6176d
+
+
 
 ## Available Scripts
 
