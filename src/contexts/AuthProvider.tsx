@@ -4,6 +4,7 @@ import { JWT } from "../domain/JWT";
 import jwt_decode from "jwt-decode";
 import { AuthData } from "../domain/AuthData";
 import { GITHUB_AUTH_LOCAL_STORAGE_KEY } from "..";
+import { FAVORITES_LOCAL_STORAGE_KEY } from "../sections/Repositories/utils";
 
 const AUTH_LOCAL_STORAGE_KEY = "auth";
 
@@ -59,6 +60,7 @@ export function AuthProvider({ children }: Props) {
   const logout = () => {
     localStorage.removeItem(AUTH_LOCAL_STORAGE_KEY);
     localStorage.removeItem(GITHUB_AUTH_LOCAL_STORAGE_KEY);
+    localStorage.removeItem(FAVORITES_LOCAL_STORAGE_KEY);
 
     setIsAuth(false);
     setIsGithubAuth(false);
