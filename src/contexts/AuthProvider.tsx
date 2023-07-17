@@ -12,6 +12,8 @@ type Props = {
 };
 
 export function AuthProvider({ children }: Props) {
+  const [isJWTLoaded, setIsJWTLoaded] = useState(false);
+
   const [JWT, setJWT] = useState<AuthData | null>(null);
   const [isAuth, setIsAuth] = useState<boolean | null>(null);
   const [isGithubAuth, setIsGithubAuth] = useState<boolean | null>(null);
@@ -19,6 +21,7 @@ export function AuthProvider({ children }: Props) {
   useEffect(() => {
     const localAuth = localStorage.getItem(AUTH_LOCAL_STORAGE_KEY);
     const jwt = localAuth ? JSON.parse(localAuth) : null;
+    setIsJWTLoaded(true);
     setJWT(jwt);
   }, []);
   useEffect(() => {
@@ -26,8 +29,8 @@ export function AuthProvider({ children }: Props) {
     setIsGithubAuth(!!localGithubAuth);
   }, []);
   useEffect(() => {
-    authorize();
-  }, [JWT]);
+    if (isJWTLoaded) authorize();
+  }, [JWT, isJWTLoaded]);
 
   const authorize = () => {
     if (!JWT) {

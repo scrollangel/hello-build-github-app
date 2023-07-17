@@ -1,28 +1,27 @@
 import React from "react";
-import "./App.css";
-import { Signup } from "./sections/Signup/Signup";
+import { RouterProvider, Routes } from "react-router";
+import { router } from "./config/router";
+import { Route, Navigate, BrowserRouter } from "react-router-dom";
 import { Login } from "./sections/Login/Login";
-import { useAuth } from "./contexts/AuthContext";
+import { SignUp } from "./sections/Signup/SignUp";
 import { GithubApplication } from "./sections/Repositories/GithubApplication";
+import { useAuth } from "./contexts/AuthContext";
 
-function App() {
-  const { isAuth } = useAuth();
+export function App() {
+  const {isAuth} = useAuth();
 
   if (isAuth === null) {
-    return <></>;
+    return <></>
   }
 
   return (
-    <>
-      {!isAuth && (
-        <>
-          <Signup />
-          <Login />
-        </>
-      )}
-      {isAuth && <GithubApplication />}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to={isAuth ? "/my-repositories" : "/login"} replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/my-repositories" element={<GithubApplication />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

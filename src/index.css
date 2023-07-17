@@ -1,13 +1,186 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --main-color: #79e064;
+  --main-bg-color: #f8fff8;
+  --main-contrast-color: #2f4858;
+  --hover-color: #00c582;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+label {
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 1.5rem;
+}
+
+input {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+button[type="submit"] {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--main-color);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--hover-color);
+}
+
+a {
+  color: var(--main-contrast-color);
+}
+
+ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+section {
+  width: 100%;
+}
+
+#top-bar {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: var(--main-contrast-color);
+  color: #fff;
+  padding: 0 2rem;
+}
+
+#top-bar > h1 {
+  margin-right: auto;
+}
+#top-bar > button {
+  margin-left: 1rem;
+  z-index: 10;
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.centered-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  width: 100%;
+  margin: 1em;
+  max-width: 400px;
+  padding: 2rem;
+  border: 4px solid var(--main-color);
+  border-radius: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.form-error {
+  background-color: #ff7d2b;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+.form-error > h5 {
+  font-size: 1rem;
+}
+
+.github-button {
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--main-contrast-color);
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.icon-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+.highlighted {
+  color: var(--main-color);
+}
+
+.content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: calc(100vh - 100px);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.repository {
+  background-color: var(--main-contrast-color);
+  border-radius: 4;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.repository > a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  padding-top: 100px;
+  background-color: var(--main-color);
+  display: none;
+}
+
+.drawer.open {
+  display: block;
+  opacity: 1;
+}
+
+.floating {
+  color: black;
 }

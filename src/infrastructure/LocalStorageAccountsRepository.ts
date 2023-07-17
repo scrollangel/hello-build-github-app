@@ -12,13 +12,19 @@ class LocalStorageAccountsRepository implements AccountsRepository {
   #localStorageUsersKey = "users";
   #jwtSecretKey = "hellobuild";
 
-  signup(username: string, password: string): void {
+  signUp(username: string, password: string): void {
     if (!username || !password) {
       throw "Both username and password should be provided";
     }
 
     const localUsers = localStorage.getItem(this.#localStorageUsersKey);
     const users = (localUsers ? JSON.parse(localUsers) : []) as Array<User>;
+    const usernameExists = users.some(u => u.username === username);
+
+    if (usernameExists) {
+      throw "Username already exists";
+    }
+
     const user = { username, password };
 
     users.push(user);
